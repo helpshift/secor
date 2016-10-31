@@ -69,6 +69,11 @@ public class FileUtil {
                     mConf.set("fs.swift.service.GENERICPROJECT.password", config.getSwiftPassword());
                 }
             } else if (config.getCloudService().equals("S3")) {
+
+                if(!config.getHadoopConfPath().isEmpty()) {
+                    mConf.addResource(new Path(config.getHadoopConfPath()));
+                }
+
                 if (config.getAwsAccessKey().isEmpty() != config.getAwsSecretKey().isEmpty()) {
                     throw new IllegalArgumentException(
                         "Must specify both aws.access.key and aws.secret.key or neither.");

@@ -448,6 +448,8 @@ public class SecorConfig {
 
     public String getAzureBaseURI() { return getString("secor.azure.base.uri"); }
 
+    public String getHadoopConfPath() { return getString("hadoop.conf.path"); }
+
     public Map<String, String> getProtobufMessageClassPerTopic() {
         String prefix = "secor.protobuf.message.class";
         Iterator<String> keys = mProperties.getKeys(prefix);
